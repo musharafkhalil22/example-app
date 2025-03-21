@@ -28,13 +28,13 @@ class RegisteredUserController extends Controller
         'phone' => ['required'],
         'address' => ['required'],
         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        'password' => ['required', 'confirmed', 'min:6'],
        ]);
 
        $user = User::create($attribute);
        
-        Auth::login('$user');
+        Auth::login($user);
 
-        return redirect('/');
+        return redirect('show_product');
     }
 }

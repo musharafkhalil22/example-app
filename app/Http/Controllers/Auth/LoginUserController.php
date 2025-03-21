@@ -32,7 +32,7 @@ class LoginUserController extends Controller
         
         request()->session()->regenerate();
 
-        return redirect('/');
+        return redirect('show_product');
 
         
     }
