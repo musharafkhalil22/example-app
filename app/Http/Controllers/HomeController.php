@@ -25,6 +25,7 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+    
 
     public function show_product(){
 
