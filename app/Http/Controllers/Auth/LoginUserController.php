@@ -31,8 +31,14 @@ class LoginUserController extends Controller
         
         
         request()->session()->regenerate();
-
-        return redirect('show_product');
+        
+        if(Auth::check() && (Auth::User()->usertype == 1)){
+            return redirect('dashboard');
+        }
+        else{
+            return redirect('show_product');
+        }
+        
 
         
     }

@@ -26,6 +26,7 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+
     public function show_product(){
 
         $product = product::all();
@@ -70,4 +71,13 @@ class HomeController extends Controller
 
     return redirect('show_product');
 }
+
+   public function search(Request $request){
+    $query = $request->input('query');
+
+    
+    $product = product::where('title', 'LIKE', "%$query%")->orwhere('catagory', 'LIKE', "%$query%")->get();
+
+    return view('home.product', compact('product'));
+   }
 }

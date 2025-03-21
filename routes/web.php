@@ -40,6 +40,8 @@ Route::get('/edit_product/{id}', [HomeController::class, 'edit_view']);
 Route::get('dashboard', [AdminController::class, 'dashboard']);
 
 Route::post('/update_product/{id}', [HomeController::class, 'update_product']);
+
+Route::get('search', [HomeController::class, 'search']);
 });
 
 
